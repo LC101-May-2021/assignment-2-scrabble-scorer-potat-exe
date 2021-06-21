@@ -45,7 +45,7 @@ function initialPrompt() {
 
 };
 
-function simpleScore(word){
+function onePoint(word){
 
   //word = word.toUpperCase();
 
@@ -60,7 +60,7 @@ function simpleScore(word){
   return score;  
 };
 
-function vowelBonusScore(word){
+function vowelThreeScore(word){
 
   word = word.toUpperCase();
   let score = 0;
@@ -81,19 +81,19 @@ function vowelBonusScore(word){
 let simpleScore = {
   name: "Simple: ",
   description: "Each letter is worth 1 point.",
-  scorerFunction:  simpleScore
+  scorerFunction:  onePoint
 };
 
 let vowelBonusScore = {
   name : "Bonus Vowels: ",
   description: "Vowels are worth 3 points. Everything else 1 point.",
-  scorerFunction: vowelBonusScore
+  scorerFunction: vowelThreeScore
 };
 
 let scrabbleScore = {
   name: "Scrabble: ",
   description: "The Traditional scoring algorithm.",
-  scorerFunction: scrabbleScore
+  scorerFunction: scrabbleScorer
 };
 
 const scoringAlgorithms = [simpleScore, vowelBonusScore, scrabbleScore];
@@ -147,7 +147,7 @@ function transform(obj) {
 
 let newPointStructure = transform(oldPointStructure);
 //console.log(newPointStructure);
-function scrabbleScore(word){
+function scrabbleScorer(word){
   word = word.toUpperCase();
 	let letterPoints = 0;
     
