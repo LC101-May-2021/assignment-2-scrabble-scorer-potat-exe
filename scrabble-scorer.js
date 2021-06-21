@@ -45,7 +45,7 @@ function initialPrompt() {
 
 };
 
-function onePoint(word){
+function simpleScore(word){
 
   //word = word.toUpperCase();
 
@@ -60,7 +60,7 @@ function onePoint(word){
   return score;  
 };
 
-function vowelThreeScore(word){
+function vowelBonusScore(word){
 
   word = word.toUpperCase();
   let score = 0;
@@ -78,28 +78,28 @@ function vowelThreeScore(word){
   return score;
 };
 
-let simpleScore = {
+let simpleScorer = {
   name: "Simple: ",
   description: "Each letter is worth 1 point.",
-  scorerFunction:  onePoint
+  scorerFunction:  simpleScore
 };
 
-let vowelBonusScore = {
+let vowelThreeScore = {
   name : "Bonus Vowels: ",
   description: "Vowels are worth 3 points. Everything else 1 point.",
-  scorerFunction: vowelThreeScore
+  scorerFunction: vowelBonusScore
 };
 
-let scrabbleScore = {
+let scrabbleScorer = {
   name: "Scrabble: ",
   description: "The Traditional scoring algorithm.",
-  scorerFunction: scrabbleScorer
+  scorerFunction: scrabbleScore
 };
 
 const scoringAlgorithms = [simpleScore, vowelBonusScore, scrabbleScore];
 
 function scorerPrompt() {
-  let userInput = input.question("What scoring algorithm would you like to use? \n\n" +  "0 - " + scoringAlgorithms[0].name + scoringAlgorithms[0].description + "\n1 - " + scoringAlgorithms[1].name + scoringAlgorithms[1].description + "\n2 - " + scoringAlgorithms[2].name + scoringAlgorithms[2].description + "\nEnter 0, 1, or 2: " );
+  let userInput = input.question("What scoring algorithm would you like to use? \n\n" +  "0 - " + simpleScorer.name + simpleScorer.description + "\n1 - " + vowelThreeScore.name + vowelThreeScore.description + "\n2 - " + scrabbleScorer.name + scrabbleScorer.description + "\nEnter 0, 1, or 2: " );
 
   userInput = Number(userInput);
 
@@ -150,7 +150,7 @@ function transform(obj) {
 
 let newPointStructure = transform(oldPointStructure);
 //console.log(newPointStructure);
-function scrabbleScorer(word){
+function scrabbleScore(word){
   word = word.toUpperCase();
 	let letterPoints = 0;
     
