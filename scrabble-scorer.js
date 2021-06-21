@@ -125,6 +125,7 @@ function scorerPrompt() {
 function transform(obj) {
   let newObj = {};
   
+
   for( n in obj){
     
 
@@ -134,14 +135,16 @@ function transform(obj) {
       //console.log(obj[n][q],n)
       //console.log(newObj[n])
       //newObj[n] += obj[n][q];
-     newObj[oldPointStructure[n][q]] = Number(n);
+      
+     newObj[oldPointStructure[n][q].toLowerCase()]= Number(n);
+     //console.log(oldPointStructure[n][q])
 
     }
     
     //console.log(n)
     //console.log(obj[n])
   }
-  //console.log(newObj);
+  console.log(newObj);
   return newObj;
 };
 
@@ -156,7 +159,7 @@ function scrabbleScorer(word){
       
       for(let i = 0; i < word.length; i++){
         
-        if(word[i]===n){
+        if(word[i].toLowerCase()===n.toLowerCase()){
           letterPoints += newPointStructure[n];
         }
 
