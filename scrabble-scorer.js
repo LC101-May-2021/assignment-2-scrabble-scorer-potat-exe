@@ -81,19 +81,19 @@ function vowelBonusScore(word){
 let simpleScorer = {
   name: "Simple: ",
   description: "Each letter is worth 1 point.",
-  scorerFunction:  simpleScore
+  scoringFunction:  simpleScore
 };
 
 let vowelThreeScore = {
   name : "Bonus Vowels: ",
   description: "Vowels are worth 3 points. Everything else 1 point.",
-  scorerFunction: vowelBonusScore
+  scoringFunction: vowelBonusScore
 };
 
 let scrabbleScorer = {
   name: "Scrabble: ",
   description: "The Traditional scoring algorithm.",
-  scorerFunction: scrabbleScore
+  scoringFunction: scrabbleScore
 };
 
 const scoringAlgorithms = [simpleScorer, vowelThreeScore, scrabbleScorer];
@@ -105,15 +105,15 @@ function scorerPrompt() {
 
   if(userInput === 0){
 
-    return scoringAlgorithms[0].scorerFunction(selectedWord);
+    return scoringAlgorithms[0].scoringFunction(selectedWord);
 
   }else if(userInput === 1){
 
-    return scoringAlgorithms[1].scorerFunction(selectedWord);
+    return scoringAlgorithms[1].scoringFunction(selectedWord);
 
   }else if(userInput === 2){
 
-    return scoringAlgorithms[2].scorerFunction(selectedWord);
+    return scoringAlgorithms[2].scoringFunction(selectedWord);
 
   }
   else{
