@@ -99,7 +99,7 @@ let scrabbleScorer = {
 const scoringAlgorithms = [simpleScorer, vowelThreeScore, scrabbleScorer];
 
 function scorerPrompt() {
-  let userInput = input.question("What scoring algorithm would you like to use? \n\n" +  "0 - " + simpleScorer.name + simpleScorer.description + "\n1 - " + vowelThreeScore.name + vowelThreeScore.description + "\n2 - " + scrabbleScorer.name + scrabbleScorer.description + "\nEnter 0, 1, or 2: " );
+  let userInput = input.question("What scoring algorithm would you like to use? \n\n" +  "0 - " + scoringAlgorithms[0].name + scoringAlgorithms[0].description + "\n1 - " + scoringAlgorithms[1].name + scoringAlgorithms[1].description + "\n2 - " + scoringAlgorithms[2].name + scoringAlgorithms[2].description + "\nEnter 0, 1, or 2: " );
 
   userInput = Number(userInput);
 
