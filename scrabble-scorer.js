@@ -144,7 +144,7 @@ function transform(obj) {
     //console.log(n)
     //console.log(obj[n])
   }
-  console.log(newObj);
+  //console.log(newObj);
   return newObj;
 };
 
